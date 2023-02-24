@@ -1,54 +1,30 @@
-package com.istartDigital.procesos.proyectos.model;
+package com.istartDigital.procesos.proyectos.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.istartDigital.coreBussines.model.Bloque;
-import com.istartDigital.gestion.producto.model.Producto;
-import com.istartDigital.security.model.Rol;
 import com.istartDigital.security.model.Usuario;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
-@Entity
-@Table(name = "PROYECTOFCI")
-public class Proyecto implements Serializable{
+public class ProyectoDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
     private String idProyecto;
     private String nombre;
     private String convocatoria;
     private String estado;
-    private Date fechaInicio;
-    private Date fechaFin;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_director")
-    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
+    private String fechaInicio;
+    private String fechaFin;
     private Usuario director;
-
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "PROYECTO_INVESTIGADOR", joinColumns = @JoinColumn(name = "proyecto_id"),
-            inverseJoinColumns = @JoinColumn(name = "investigador_id"))
     private Set<Usuario> investigadores = new HashSet<>();
     private String correoDirector;
     private String telefonoDirector;
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "proyecto")
-    private Producto producto;
-
-    public Proyecto() {
+    public ProyectoDto() {
     }
 
-    public Proyecto(String idProyecto, String nombre, String convocatoria, String estado, Date fechaInicio, Date fechaFin, Usuario director, String correoDirector, String telefonoDirector) {
+    public ProyectoDto(String idProyecto, String nombre, String convocatoria, String estado, String fechaInicio, String fechaFin, Usuario director, String correoDirector, String telefonoDirector) {
         this.idProyecto = idProyecto;
         this.nombre = nombre;
         this.convocatoria = convocatoria;
@@ -101,22 +77,18 @@ public class Proyecto implements Serializable{
     }
 
     public String getFechaInicio() {
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        String strDate = dateFormat.format(fechaInicio);
-        return strDate;
+        return fechaInicio;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
+    public void setFechaInicio(String fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
     public String getFechaFin() {
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        String strDate = dateFormat.format(fechaFin);
-        return strDate;
+        return fechaFin;
     }
 
-    public void setFechaFin(Date fechaFin) {
+    public void setFechaFin(String fechaFin) {
         this.fechaFin = fechaFin;
     }
 
@@ -151,7 +123,5 @@ public class Proyecto implements Serializable{
     public void setTelefonoDirector(String telefonoDirector) {
         this.telefonoDirector = telefonoDirector;
     }
-
-    public String getNombrecompletoDirector (){return this.director.getNombre() + ' '+this.director.getApellido();}
 
 }

@@ -1,12 +1,19 @@
 package com.istartDigital.security.model;
 
+import com.istartDigital.coreBussines.model.Cuenta;
+import com.istartDigital.gestion.producto.model.Producto;
+import com.istartDigital.procesos.proyectos.model.Proyecto;
+
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
 @Table(name = "USUARIO")
-public class Usuario {
+public class Usuario implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,6 +39,11 @@ public class Usuario {
     inverseJoinColumns = @JoinColumn(name = "rol_id"))
     private Set<Rol> roles = new HashSet<>();
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "director")
+    private List<Proyecto> proyectos;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "director")
+    private List<Producto> producto;
     public Usuario() {
     }
 
@@ -136,4 +148,15 @@ public class Usuario {
     public void setCarrera(int carrera) {
         this.carrera = carrera;
     }
+
+    public void setProyectos(List<Proyecto> proyectos) {
+        this.proyectos = proyectos;
+    }
+
+    public void setProducto(List<Producto> producto) {
+        this.producto = producto;
+    }
+
+    public String getNombreCompleto (){return this.nombre + ' '+this.apellido;}
+
 }
