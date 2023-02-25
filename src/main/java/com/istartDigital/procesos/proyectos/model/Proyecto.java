@@ -3,6 +3,7 @@ package com.istartDigital.procesos.proyectos.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.istartDigital.coreBussines.model.Bloque;
 import com.istartDigital.gestion.producto.model.Producto;
+import com.istartDigital.procesos.horas.model.AsignacionHoras;
 import com.istartDigital.security.model.Rol;
 import com.istartDigital.security.model.Usuario;
 
@@ -38,12 +39,16 @@ public class Proyecto implements Serializable{
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "PROYECTO_INVESTIGADOR", joinColumns = @JoinColumn(name = "proyecto_id"),
             inverseJoinColumns = @JoinColumn(name = "investigador_id"))
+    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
     private Set<Usuario> investigadores = new HashSet<>();
     private String correoDirector;
     private String telefonoDirector;
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "proyecto")
     private Producto producto;
+
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "proyecto")
+    private AsignacionHoras horas;
 
     public Proyecto() {
     }

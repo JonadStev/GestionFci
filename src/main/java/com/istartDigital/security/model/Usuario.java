@@ -1,7 +1,10 @@
 package com.istartDigital.security.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.istartDigital.coreBussines.model.Cuenta;
 import com.istartDigital.gestion.producto.model.Producto;
+import com.istartDigital.procesos.horas.model.AsignacionHoras;
+import com.istartDigital.procesos.horas.model.DetalleAsigancionHoras;
 import com.istartDigital.procesos.proyectos.model.Proyecto;
 
 import javax.persistence.*;
@@ -44,6 +47,13 @@ public class Usuario implements Serializable {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "director")
     private List<Producto> producto;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "director")
+    private List<AsignacionHoras> horas;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "investigador")
+    private List<DetalleAsigancionHoras> detalleHoras;
+
     public Usuario() {
     }
 

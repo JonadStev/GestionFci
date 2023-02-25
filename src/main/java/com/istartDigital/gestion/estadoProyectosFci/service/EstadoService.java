@@ -12,6 +12,8 @@ public interface EstadoService {
 
     List<Estado> getAllEstados();
 
+    List<Estado> getAllEstadosByStatus(String estado);
+
     Optional<Estado> getEstadoById(long id);
 
 }

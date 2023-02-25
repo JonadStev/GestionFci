@@ -25,6 +25,11 @@ public class EstadoServiceImpl implements EstadoService{
     }
 
     @Override
+    public List<Estado> getAllEstadosByStatus(String estado) {
+        return (List<Estado>) estadoRepository.findByEstado(estado);
+    }
+
+    @Override
     public Optional<Estado> getEstadoById(long id) {
         return estadoRepository.findById(id);
     }

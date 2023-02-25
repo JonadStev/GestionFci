@@ -50,7 +50,6 @@ public class UsuarioService {
             if (u.getRoles().size() != 3) {
                 for(Rol rol : u.getRoles()){
                     if (rol.getRolNombre().toString() == "ROLE_INVESTIGADOR"){
-                        System.out.println(rol.getRolNombre());
                         investigadores.add(u);
                     }
                 }
@@ -66,7 +65,6 @@ public class UsuarioService {
             if (u.getRoles().size() != 3) {
                 for(Rol rol : u.getRoles()){
                     if (rol.getRolNombre().toString() == "ROLE_DIRECTOR"){
-                        System.out.println(rol.getRolNombre());
                         directores.add(u);
                     }
                 }
