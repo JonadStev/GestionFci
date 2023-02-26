@@ -23,6 +23,10 @@ public class UsuarioService {
         return usuarioRepository.findByEmail(nombreUsuario);
     }
 
+    public Optional<Usuario> getByCedula(String cedula){
+        return usuarioRepository.findByCedula(cedula);
+    }
+
     public boolean existsByEmail(String email){
         return usuarioRepository.existsByEmail(email);
     }
