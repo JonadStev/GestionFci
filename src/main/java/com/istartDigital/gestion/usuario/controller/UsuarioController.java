@@ -48,6 +48,11 @@ public class UsuarioController {
     //@PreAuthorize("hasRole('ROLE_SUPERVISOR')")
     @PostMapping("/usuario/save")
     public Usuario saveUser(@RequestBody Usuario usuario){
+        String password = "";
+        if (usuario.getId() == 0) {
+            password = passwordEncoder.encode(usuario.getPassword());
+            usuario.setPassword(password);
+        }
         return usuarioService.save(usuario);
     }
 

@@ -17,7 +17,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.nio.charset.Charset;
@@ -29,8 +29,8 @@ import java.util.*;
 @CrossOrigin
 public class AuthController {
 
-    @Autowired
-    PasswordEncoder passwordEncoder;
+    //@Autowired
+    //PasswordEncoder passwordEncoder;
     @Autowired
     AuthenticationManager authenticationManager;
     @Autowired
@@ -40,7 +40,7 @@ public class AuthController {
     @Autowired
     JwtProvider jwtProvider;
 
-    @PostMapping("/nuevo")
+    /*@PostMapping("/nuevo")
     public Map<String, String> nuevo(@RequestBody NuevoUsuario nuevoUsuario){
         Map<String, String> map = new HashMap<>();
         if(usuarioService.existsByEmail(nuevoUsuario.getEmail())){
@@ -72,7 +72,7 @@ public class AuthController {
         usuarioService.save(usuario);
         map.put("message", "Usuario guardado correctamente.");
         return map;
-    }
+    }*/
 
     @PostMapping("/login")
     public ResponseEntity<JwtDto> login(@RequestBody LoginUsuario loginUsuario){
