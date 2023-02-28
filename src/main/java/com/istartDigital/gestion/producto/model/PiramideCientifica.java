@@ -15,10 +15,10 @@ public class PiramideCientifica {
     private String postGrado;
     private String doctorado;
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "piramidePropuesto")
+    @OneToOne(mappedBy = "piramidePropuesto")
     private Producto productoPropuesto;
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "piramideCumplido")
+    @OneToOne(mappedBy = "piramideCumplido")
     private Producto productoCumplido;
 
     public PiramideCientifica() {
@@ -61,4 +61,5 @@ public class PiramideCientifica {
     public void setDoctorado(String doctorado) {
         this.doctorado = doctorado;
     }
+
 }

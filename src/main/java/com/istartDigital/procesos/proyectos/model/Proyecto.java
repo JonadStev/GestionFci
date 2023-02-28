@@ -44,10 +44,10 @@ public class Proyecto implements Serializable{
     private String correoDirector;
     private String telefonoDirector;
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "proyecto")
+    @OneToOne(mappedBy = "proyecto")
     private Producto producto;
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "proyecto")
+    @OneToOne(mappedBy = "proyecto")
     private AsignacionHoras horas;
 
     public Proyecto() {

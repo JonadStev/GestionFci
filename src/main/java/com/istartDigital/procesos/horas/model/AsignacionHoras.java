@@ -18,9 +18,9 @@ public class AsignacionHoras implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne()
     @JoinColumn(name = "id_proyecto")
-    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
+    //@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
     private Proyecto proyecto;
     private String nombreProyecto;
     private String convocatoria;

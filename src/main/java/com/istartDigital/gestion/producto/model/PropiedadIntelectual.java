@@ -3,10 +3,12 @@ package com.istartDigital.gestion.producto.model;
 import com.istartDigital.gestion.producto.model.Producto;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "PROPIEDAD_INTELECTUAL")
-public class PropiedadIntelectual {
+public class PropiedadIntelectual implements Serializable {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,10 +17,10 @@ public class PropiedadIntelectual {
     private String autor;
     private String vegetal;
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "piPropuesto")
+    @OneToOne(mappedBy = "piPropuesto")
     private Producto productoPropuesto;
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "piCumplido")
+    @OneToOne(mappedBy = "piCumplido")
     private Producto productoCumplido;
 
     public PropiedadIntelectual() {

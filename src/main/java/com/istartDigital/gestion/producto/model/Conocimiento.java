@@ -3,10 +3,11 @@ package com.istartDigital.gestion.producto.model;
 import com.istartDigital.gestion.producto.model.Producto;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "CONOCIMIENTO")
-public class Conocimiento {
+public class Conocimiento implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,10 +15,10 @@ public class Conocimiento {
     private String grupos;
     private String redes;
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "conocimientoPropuesto")
+    @OneToOne(mappedBy = "conocimientoPropuesto")
     private Producto productoPropuesto;
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "conocimientoCumplido")
+    @OneToOne(mappedBy = "conocimientoCumplido")
     private Producto productoCumplido;
 
     public Conocimiento() {
@@ -51,4 +52,5 @@ public class Conocimiento {
     public void setRedes(String redes) {
         this.redes = redes;
     }
+
 }

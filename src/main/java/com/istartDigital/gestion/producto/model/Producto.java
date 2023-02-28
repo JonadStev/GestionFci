@@ -15,9 +15,9 @@ public class Producto implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne()
     @JoinColumn(name = "id_proyecto")
-    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
+    //@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
     private Proyecto proyecto;
 
     private String nombreProyecto;
@@ -29,50 +29,50 @@ public class Producto implements Serializable {
 
     private String estado;
 
-    @OneToOne(fetch = FetchType.LAZY , cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_pc_propuesto")
-    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
+    //@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
     private ProduccionCientifica pcPropuesto;
 
-    @OneToOne(fetch = FetchType.LAZY , cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_pc_cumplido")
-    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
+    //@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
     private ProduccionCientifica pcCumplido;
 
-    @OneToOne(fetch = FetchType.LAZY , cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_pi_propuesto")
-    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
+    //@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
     private PropiedadIntelectual piPropuesto;
 
-    @OneToOne(fetch = FetchType.LAZY , cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_pi_cumplido")
-    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
+    //@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
     private PropiedadIntelectual piCumplido;
 
-    @OneToOne(fetch = FetchType.LAZY , cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_conocimiento_propuesto")
-    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
+    //@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
     private Conocimiento conocimientoPropuesto;
 
-    @OneToOne(fetch = FetchType.LAZY , cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_conocimiento_cumplido")
-    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
+    //@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
     private Conocimiento conocimientoCumplido;
 
-    @OneToOne(fetch = FetchType.LAZY , cascade = CascadeType.ALL)
+    @OneToOne( cascade = CascadeType.ALL)
     @JoinColumn(name = "id_piramide_propuesto")
-    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
+    //@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
     private PiramideCientifica piramidePropuesto;
 
-    @OneToOne(fetch = FetchType.LAZY , cascade = CascadeType.ALL)
+    @OneToOne( cascade = CascadeType.ALL)
     @JoinColumn(name = "id_piramide_cumplido")
-    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
+    //@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
     private PiramideCientifica piramideCumplido;
 
     public Producto() {
     }
 
-    public Producto(Proyecto proyecto, String nombreProyecto, Usuario director, String estado, ProduccionCientifica pcPropuesto, ProduccionCientifica pcCumplido, PropiedadIntelectual piPropuesto, PropiedadIntelectual piCumplido, Conocimiento conocimientoPropuesto, Conocimiento conocimientoCumplido, PiramideCientifica piramidePropuesto, PiramideCientifica piramideCumplido) {
+    public Producto(Proyecto proyecto, String nombreProyecto, Usuario director, String estado, ProduccionCientifica pcPropuesto, ProduccionCientifica pcCumplido , PropiedadIntelectual piPropuesto, PropiedadIntelectual piCumplido, Conocimiento conocimientoPropuesto, Conocimiento conocimientoCumplido, PiramideCientifica piramidePropuesto, PiramideCientifica piramideCumplido) {
         this.proyecto = proyecto;
         this.nombreProyecto = nombreProyecto;
         this.director = director;
@@ -126,6 +126,7 @@ public class Producto implements Serializable {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
 
     public ProduccionCientifica getPcPropuesto() {
         return pcPropuesto;
