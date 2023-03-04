@@ -53,39 +53,41 @@ public class AcreditacionService {
                         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                         Date fecha = null;
                         try {
-                            if (row.getCell(11).getStringCellValue() != "" || row.getCell(11).getStringCellValue() != null){
-                                fecha = formatter.parse(row.getCell(11).getStringCellValue());
+                            if (row.getCell(13).getStringCellValue() != "" || row.getCell(13).getStringCellValue() != null){
+                                fecha = formatter.parse(row.getCell(13).getStringCellValue());
                             }
                         }catch (Exception e){
                             System.out.println(e);
                         }
                         String facultad = (row.getCell(0) != null)?row.getCell(0).getStringCellValue():"";
                         String codigoUg = (row.getCell(1) != null)?row.getCell(1).getStringCellValue():"";
-                        String tituloPublicacion = (row.getCell(2) != null)?row.getCell(2).getStringCellValue():"";
-                        String doi = (row.getCell(3) != null)?row.getCell(3).getStringCellValue():"";
-                        String baseDatosindexada = (row.getCell(4) != null)?row.getCell(4).getStringCellValue():"";
-                        String codigoISSN = (row.getCell(5) != null)?row.getCell(5).getStringCellValue():"";
-                        String tipoIndexacion = (row.getCell(6) != null)?row.getCell(6).getStringCellValue():"";
-                        String nombreRevista = (row.getCell(7) != null)?row.getCell(7).getStringCellValue():"";
-                        String numeroRevista = (row.getCell(8) != null)?row.getCell(8).getStringCellValue():"";
-                        String quartil = (row.getCell(9) != null)?row.getCell(9).getStringCellValue():"";
-                        String srjJcr = (row.getCell(10) != null)?row.getCell(10).getStringCellValue():"";
+                        String tipoPublicacion = (row.getCell(2) != null)?row.getCell(2).getStringCellValue():"";
+                        String codigoPublicacion = (row.getCell(3) != null)?row.getCell(3).getStringCellValue():"";
+                        String tituloPublicacion = (row.getCell(4) != null)?row.getCell(4).getStringCellValue():"";
+                        String doi = (row.getCell(5) != null)?row.getCell(5).getStringCellValue():"";
+                        String baseDatosindexada = (row.getCell(6) != null)?row.getCell(6).getStringCellValue():"";
+                        String codigoISSN = (row.getCell(7) != null)?row.getCell(7).getStringCellValue():"";
+                        String tipoIndexacion = (row.getCell(8) != null)?row.getCell(8).getStringCellValue():"";
+                        String nombreRevista = (row.getCell(9) != null)?row.getCell(9).getStringCellValue():"";
+                        String numeroRevista = (row.getCell(10) != null)?row.getCell(10).getStringCellValue():"";
+                        String quartil = (row.getCell(11) != null)?row.getCell(11).getStringCellValue():"";
+                        String srjJcr = (row.getCell(12) != null)?row.getCell(12).getStringCellValue():"";
                         Date fechaPublicacion = fecha;
-                        String campoDetallado = (row.getCell(12) != null)?row.getCell(12).getStringCellValue():"";
-                        String estado = (row.getCell(13) != null)?row.getCell(13).getStringCellValue():"";
-                        String linkPublicacion = (row.getCell(14) != null)?row.getCell(14).getStringCellValue():"";
-                        String linkRevista = (row.getCell(15) != null)?row.getCell(15).getStringCellValue():"";
-                        String filiacion = (row.getCell(16) != null)?row.getCell(16).getStringCellValue():"";
-                        String dominio = (row.getCell(17) != null)?row.getCell(17).getStringCellValue():"";
-                        String linea = (row.getCell(18) != null)?row.getCell(18).getStringCellValue():"";
-                        String sublinea = (row.getCell(19) != null)?row.getCell(19).getStringCellValue():"";
-                        String cedula1 = (row.getCell(20) != null)?row.getCell(20).getStringCellValue():"";
-                        String cedula2 = (row.getCell(21) != null)?row.getCell(21).getStringCellValue():"";
-                        String cedula3 = (row.getCell(22) != null)?row.getCell(22).getStringCellValue():"";
-                        String cedula4 = (row.getCell(23) != null)?row.getCell(23).getStringCellValue():"";
-                        String cedula5 = (row.getCell(24) != null)?row.getCell(24).getStringCellValue():"";
-                        String tituloProyectoFci = (row.getCell(25) != null)?row.getCell(25).getStringCellValue():"";
-                        String observacion = (row.getCell(26) != null)?row.getCell(26).getStringCellValue():"";
+                        double campoDetallado = (row.getCell(14) != null)? row.getCell(14).getNumericCellValue():0;
+                        String estado = (row.getCell(15) != null)?row.getCell(15).getStringCellValue():"";
+                        String linkPublicacion = (row.getCell(16) != null)?row.getCell(16).getStringCellValue():"";
+                        String linkRevista = (row.getCell(17) != null)?row.getCell(17).getStringCellValue():"";
+                        String filiacion = (row.getCell(18) != null)?row.getCell(18).getStringCellValue():"";
+                        String dominio = (row.getCell(19) != null)?row.getCell(19).getStringCellValue():"";
+                        String linea = (row.getCell(20) != null)?row.getCell(20).getStringCellValue():"";
+                        String sublinea = (row.getCell(21) != null)?row.getCell(21).getStringCellValue():"";
+                        String cedula1 = (row.getCell(22) != null)?row.getCell(22).getStringCellValue():"";
+                        String cedula2 = (row.getCell(23) != null)?row.getCell(23).getStringCellValue():"";
+                        String cedula3 = (row.getCell(24) != null)?row.getCell(24).getStringCellValue():"";
+                        String cedula4 = (row.getCell(25) != null)?row.getCell(25).getStringCellValue():"";
+                        String cedula5 = (row.getCell(26) != null)?row.getCell(26).getStringCellValue():"";
+                        String tituloProyectoFci = (row.getCell(27) != null)?row.getCell(27).getStringCellValue():"";
+                        String observacion = (row.getCell(28) != null)?row.getCell(28).getStringCellValue():"";
 
                         Optional<Usuario> usr1 = usuarioService.getByCedula(cedula1);
                         if (!usr1.isEmpty()){
@@ -109,6 +111,8 @@ public class AcreditacionService {
                         }
                         Articulo articulo = new Articulo(facultad,
                                 codigoUg,
+                                tipoPublicacion,
+                                codigoPublicacion,
                                 tituloPublicacion,
                                 doi,
                                 baseDatosindexada,
@@ -144,41 +148,43 @@ public class AcreditacionService {
                         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                         Date fecha = null;
                         try {
-                            if (row.getCell(13).getStringCellValue() != "" || row.getCell(13).getStringCellValue() != null){
-                                fecha = formatter.parse(row.getCell(13).getStringCellValue());
+                            if (row.getCell(15).getStringCellValue() != "" || row.getCell(15).getStringCellValue() != null){
+                                fecha = formatter.parse(row.getCell(15).getStringCellValue());
                             }
                         }catch (Exception e){
                             System.out.println(e);
                         }
                         String facultad = (row.getCell(0) != null)?row.getCell(0).getStringCellValue():"";
                         String codigoUg = (row.getCell(1) != null)?row.getCell(1).getStringCellValue():"";
-                        String nombrePonencia = (row.getCell(2) != null)?row.getCell(2).getStringCellValue():"";
-                        String doi = (row.getCell(3) != null)?row.getCell(3).getStringCellValue():"";
-                        String nombreEvento = (row.getCell(4) != null)?row.getCell(4).getStringCellValue():"";
-                        String baseDatosIndexada = (row.getCell(5) != null)?row.getCell(5).getStringCellValue():"";
-                        String codigoIsbnIss = (row.getCell(6) != null)?row.getCell(6).getStringCellValue():"";
-                        String tipoIndexacion = (row.getCell(7) != null)?row.getCell(7).getStringCellValue():"";
-                        String edicionEvento = (row.getCell(8) != null)?row.getCell(8).getStringCellValue():"";
-                        String organizadorEvento = (row.getCell(9) != null)?row.getCell(9).getStringCellValue():"";
-                        String comiteCientifico = (row.getCell(10) != null)?row.getCell(10).getStringCellValue():"";
-                        String pais = (row.getCell(11) != null)?row.getCell(11).getStringCellValue():"";
-                        String ciudad = (row.getCell(12) != null)?row.getCell(12).getStringCellValue():"";
+                        String tipoPublicacion = (row.getCell(2) != null)?row.getCell(2).getStringCellValue():"";
+                        String codigoPublicacion = (row.getCell(3) != null)?row.getCell(3).getStringCellValue():"";
+                        String nombrePonencia = (row.getCell(4) != null)?row.getCell(4).getStringCellValue():"";
+                        String doi = (row.getCell(5) != null)?row.getCell(5).getStringCellValue():"";
+                        String nombreEvento = (row.getCell(6) != null)?row.getCell(6).getStringCellValue():"";
+                        String baseDatosIndexada = (row.getCell(7) != null)?row.getCell(7).getStringCellValue():"";
+                        String codigoIsbnIss = (row.getCell(8) != null)?row.getCell(8).getStringCellValue():"";
+                        String tipoIndexacion = (row.getCell(9) != null)?row.getCell(9).getStringCellValue():"";
+                        String edicionEvento = (row.getCell(10) != null)?row.getCell(10).getStringCellValue():"";
+                        String organizadorEvento = (row.getCell(11) != null)?row.getCell(11).getStringCellValue():"";
+                        String comiteCientifico = (row.getCell(12) != null)?row.getCell(12).getStringCellValue():"";
+                        String pais = (row.getCell(13) != null)?row.getCell(13).getStringCellValue():"";
+                        String ciudad = (row.getCell(14) != null)?row.getCell(14).getStringCellValue():"";
                         Date fechaPublicacion = fecha;
-                        String quartil = (row.getCell(14) != null)?row.getCell(14).getStringCellValue():"";
-                        String sjrJcr = (row.getCell(15) != null)?row.getCell(15).getStringCellValue():"";
-                        double campoDetallado = (row.getCell(16) != null)? row.getCell(16).getNumericCellValue():0;
-                        String linkPublicacion = (row.getCell(17) != null)?row.getCell(17).getStringCellValue():"";
-                        String filiacionUg = (row.getCell(18) != null)?row.getCell(18).getStringCellValue():"";
-                        String dominio = (row.getCell(19) != null)?row.getCell(19).getStringCellValue():"";
-                        String linea = (row.getCell(20) != null)?row.getCell(20).getStringCellValue():"";
-                        String sublinea = (row.getCell(21) != null)?row.getCell(21).getStringCellValue():"";
-                        String cedula1 = (row.getCell(22) != null)?row.getCell(22).getStringCellValue():"";
-                        String cedula2 = (row.getCell(23) != null)?row.getCell(23).getStringCellValue():"";
-                        String cedula3 = (row.getCell(24) != null)?row.getCell(24).getStringCellValue():"";
-                        String cedula4 = (row.getCell(25) != null)?row.getCell(25).getStringCellValue():"";
-                        String cedula5 = (row.getCell(26) != null)?row.getCell(26).getStringCellValue():"";
-                        String tituloProyectoFci = (row.getCell(27) != null)?row.getCell(27).getStringCellValue():"";
-                        String observacion = (row.getCell(28) != null)?row.getCell(28).getStringCellValue():"";
+                        String quartil = (row.getCell(16) != null)?row.getCell(16).getStringCellValue():"";
+                        String sjrJcr = (row.getCell(17) != null)?row.getCell(17).getStringCellValue():"";
+                        double campoDetallado = (row.getCell(18) != null)? row.getCell(18).getNumericCellValue():0;
+                        String linkPublicacion = (row.getCell(19) != null)?row.getCell(19).getStringCellValue():"";
+                        String filiacionUg = (row.getCell(20) != null)?row.getCell(20).getStringCellValue():"";
+                        String dominio = (row.getCell(21) != null)?row.getCell(21).getStringCellValue():"";
+                        String linea = (row.getCell(22) != null)?row.getCell(22).getStringCellValue():"";
+                        String sublinea = (row.getCell(23) != null)?row.getCell(23).getStringCellValue():"";
+                        String cedula1 = (row.getCell(24) != null)?row.getCell(24).getStringCellValue():"";
+                        String cedula2 = (row.getCell(25) != null)?row.getCell(25).getStringCellValue():"";
+                        String cedula3 = (row.getCell(26) != null)?row.getCell(26).getStringCellValue():"";
+                        String cedula4 = (row.getCell(27) != null)?row.getCell(27).getStringCellValue():"";
+                        String cedula5 = (row.getCell(28) != null)?row.getCell(28).getStringCellValue():"";
+                        String tituloProyectoFci = (row.getCell(29) != null)?row.getCell(29).getStringCellValue():"";
+                        String observacion = (row.getCell(30) != null)?row.getCell(30).getStringCellValue():"";
 
                         Optional<Usuario> usr1 = usuarioService.getByCedula(cedula1);
                         if (!usr1.isEmpty()){
@@ -202,6 +208,8 @@ public class AcreditacionService {
                         }
                         Ponencia ponencia = new Ponencia(facultad,
                                 codigoUg,
+                                tipoPublicacion,
+                                codigoPublicacion,
                                 nombrePonencia,
                                 doi,
                                 nombreEvento,
@@ -239,33 +247,35 @@ public class AcreditacionService {
                         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                         Date fecha = null;
                         try {
-                            if (row.getCell(6).getStringCellValue() != "" || row.getCell(6).getStringCellValue() != null){
-                                fecha = formatter.parse(row.getCell(6).getStringCellValue());
+                            if (row.getCell(8).getStringCellValue() != "" || row.getCell(8).getStringCellValue() != null){
+                                fecha = formatter.parse(row.getCell(8).getStringCellValue());
                             }
                         }catch (Exception e){
                             System.out.println(e);
                         }
                         String facultad = (row.getCell(0) != null)?row.getCell(0).getStringCellValue():"";
                         String codigoUg = (row.getCell(1) != null)?row.getCell(1).getStringCellValue():"";
-                        String tituloLibro = (row.getCell(2) != null)?row.getCell(2).getStringCellValue():"";
-                        String codigoIsbn = (row.getCell(3) != null)?row.getCell(3).getStringCellValue():"";
-                        String editorCompilador = (row.getCell(4) != null)?row.getCell(4).getStringCellValue():"";
-                        String paginas = (row.getCell(5) != null)?row.getCell(5).getStringCellValue():"";
+                        String tipoPublicacion = (row.getCell(2) != null)?row.getCell(2).getStringCellValue():"";
+                        String codigoPublicacion = (row.getCell(3) != null)?row.getCell(3).getStringCellValue():"";
+                        String tituloLibro = (row.getCell(4) != null)?row.getCell(4).getStringCellValue():"";
+                        String codigoIsbn = (row.getCell(5) != null)?row.getCell(5).getStringCellValue():"";
+                        String editorCompilador = (row.getCell(6) != null)?row.getCell(6).getStringCellValue():"";
+                        String paginas = (row.getCell(7) != null)?row.getCell(7).getStringCellValue():"";
                         Date fechaPublicacion = fecha;
-                        String linkPublicacion = (row.getCell(7) != null)?row.getCell(7).getStringCellValue():"";
-                        double campoDetallado = (row.getCell(8) != null)?row.getCell(8).getNumericCellValue():0;
-                        String filiacionUg = (row.getCell(9) != null)?row.getCell(9).getStringCellValue():"";
-                        String revicionPorPares = (row.getCell(10) != null)?row.getCell(10).getStringCellValue():"";
-                        String dominio = (row.getCell(11) != null)?row.getCell(11).getStringCellValue():"";
-                        String linea = (row.getCell(12) != null)?row.getCell(12).getStringCellValue():"";
-                        String sublinea = (row.getCell(13) != null)?row.getCell(13).getStringCellValue():"";
-                        String cedula1 = (row.getCell(14) != null)?row.getCell(14).getStringCellValue():"";
-                        String cedula2 = (row.getCell(15) != null)?row.getCell(15).getStringCellValue():"";
-                        String cedula3 = (row.getCell(16) != null)?row.getCell(16).getStringCellValue():"";
-                        String cedula4 = (row.getCell(17) != null)?row.getCell(17).getStringCellValue():"";
-                        String cedula5 = (row.getCell(18) != null)?row.getCell(18).getStringCellValue():"";
-                        String tituloProyectoFci = (row.getCell(19) != null)?row.getCell(19).getStringCellValue():"";
-                        String observacion = (row.getCell(20) != null)?row.getCell(20).getStringCellValue():"";
+                        String linkPublicacion = (row.getCell(9) != null)?row.getCell(9).getStringCellValue():"";
+                        double campoDetallado = (row.getCell(10) != null)?row.getCell(10).getNumericCellValue():0;
+                        String filiacionUg = (row.getCell(11) != null)?row.getCell(11).getStringCellValue():"";
+                        String revicionPorPares = (row.getCell(12) != null)?row.getCell(12).getStringCellValue():"";
+                        String dominio = (row.getCell(13) != null)?row.getCell(13).getStringCellValue():"";
+                        String linea = (row.getCell(14) != null)?row.getCell(14).getStringCellValue():"";
+                        String sublinea = (row.getCell(15) != null)?row.getCell(15).getStringCellValue():"";
+                        String cedula1 = (row.getCell(16) != null)?row.getCell(16).getStringCellValue():"";
+                        String cedula2 = (row.getCell(17) != null)?row.getCell(17).getStringCellValue():"";
+                        String cedula3 = (row.getCell(18) != null)?row.getCell(18).getStringCellValue():"";
+                        String cedula4 = (row.getCell(19) != null)?row.getCell(19).getStringCellValue():"";
+                        String cedula5 = (row.getCell(20) != null)?row.getCell(20).getStringCellValue():"";
+                        String tituloProyectoFci = (row.getCell(21) != null)?row.getCell(21).getStringCellValue():"";
+                        String observacion = (row.getCell(22) != null)?row.getCell(22).getStringCellValue():"";
 
                         Optional<Usuario> usr1 = usuarioService.getByCedula(cedula1);
                         if (!usr1.isEmpty()){
@@ -289,6 +299,8 @@ public class AcreditacionService {
                         }
                         Libro libro = new Libro(facultad,
                                 codigoUg,
+                                tipoPublicacion,
+                                codigoPublicacion,
                                 tituloLibro,
                                 codigoIsbn,
                                 editorCompilador,
@@ -318,34 +330,36 @@ public class AcreditacionService {
                         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                         Date fecha = null;
                         try {
-                            if (row.getCell(7).getStringCellValue() != "" || row.getCell(7).getStringCellValue() != null){
-                                fecha = formatter.parse(row.getCell(7).getStringCellValue());
+                            if (row.getCell(9).getStringCellValue() != "" || row.getCell(9).getStringCellValue() != null){
+                                fecha = formatter.parse(row.getCell(9).getStringCellValue());
                             }
                         }catch (Exception e){
                             System.out.println(e);
                         }
                         String facultad = (row.getCell(0) != null)?row.getCell(0).getStringCellValue():"";
                         String codigoUg = (row.getCell(1) != null)?row.getCell(1).getStringCellValue():"";
-                        String tituloLibro = (row.getCell(2) != null)?row.getCell(2).getStringCellValue():"";
-                        String tituloCapitulo = (row.getCell(3) != null)?row.getCell(3).getStringCellValue():"";
-                        String codigoIsbn = (row.getCell(4) != null)?row.getCell(4).getStringCellValue():"";
-                        String editorCompilador = (row.getCell(5) != null)?row.getCell(5).getStringCellValue():"";
-                        String paginas = (row.getCell(6) != null)?row.getCell(6).getStringCellValue():"";
+                        String tipoPublicacion = (row.getCell(2) != null)?row.getCell(2).getStringCellValue():"";
+                        String codigoPublicacion = (row.getCell(3) != null)?row.getCell(3).getStringCellValue():"";
+                        String tituloLibro = (row.getCell(4) != null)?row.getCell(4).getStringCellValue():"";
+                        String tituloCapitulo = (row.getCell(5) != null)?row.getCell(5).getStringCellValue():"";
+                        String codigoIsbn = (row.getCell(6) != null)?row.getCell(6).getStringCellValue():"";
+                        String editorCompilador = (row.getCell(7) != null)?row.getCell(7).getStringCellValue():"";
+                        String paginas = (row.getCell(8) != null)?row.getCell(8).getStringCellValue():"";
                         Date fechaPublicacion = fecha;
-                        String linkPublicacion = (row.getCell(8) != null)?row.getCell(8).getStringCellValue():"";
-                        double campoDetallado = (row.getCell(9) != null)?row.getCell(9).getNumericCellValue():0;
-                        String filiacionUg = (row.getCell(10) != null)?row.getCell(10).getStringCellValue():"";
-                        String revicionPorPares = (row.getCell(11) != null)?row.getCell(11).getStringCellValue():"";
-                        String dominio = (row.getCell(12) != null)?row.getCell(12).getStringCellValue():"";
-                        String linea = (row.getCell(13) != null)?row.getCell(13).getStringCellValue():"";
-                        String sublinea = (row.getCell(14) != null)?row.getCell(14).getStringCellValue():"";
-                        String cedula1 = (row.getCell(15) != null)?row.getCell(15).getStringCellValue():"";
-                        String cedula2 = (row.getCell(16) != null)?row.getCell(16).getStringCellValue():"";
-                        String cedula3 = (row.getCell(17) != null)?row.getCell(17).getStringCellValue():"";
-                        String cedula4 = (row.getCell(18) != null)?row.getCell(18).getStringCellValue():"";
-                        String cedula5 = (row.getCell(19) != null)?row.getCell(19).getStringCellValue():"";
-                        String tituloProyectoFci = (row.getCell(20) != null)?row.getCell(20).getStringCellValue():"";
-                        String observacion = (row.getCell(21) != null)?row.getCell(21).getStringCellValue():"";
+                        String linkPublicacion = (row.getCell(10) != null)?row.getCell(10).getStringCellValue():"";
+                        double campoDetallado = (row.getCell(11) != null)?row.getCell(11).getNumericCellValue():0;
+                        String filiacionUg = (row.getCell(12) != null)?row.getCell(12).getStringCellValue():"";
+                        String revicionPorPares = (row.getCell(13) != null)?row.getCell(13).getStringCellValue():"";
+                        String dominio = (row.getCell(14) != null)?row.getCell(14).getStringCellValue():"";
+                        String linea = (row.getCell(15) != null)?row.getCell(15).getStringCellValue():"";
+                        String sublinea = (row.getCell(16) != null)?row.getCell(16).getStringCellValue():"";
+                        String cedula1 = (row.getCell(17) != null)?row.getCell(17).getStringCellValue():"";
+                        String cedula2 = (row.getCell(18) != null)?row.getCell(18).getStringCellValue():"";
+                        String cedula3 = (row.getCell(19) != null)?row.getCell(19).getStringCellValue():"";
+                        String cedula4 = (row.getCell(20) != null)?row.getCell(20).getStringCellValue():"";
+                        String cedula5 = (row.getCell(21) != null)?row.getCell(21).getStringCellValue():"";
+                        String tituloProyectoFci = (row.getCell(22) != null)?row.getCell(22).getStringCellValue():"";
+                        String observacion = (row.getCell(23) != null)?row.getCell(23).getStringCellValue():"";
 
                         Optional<Usuario> usr1 = usuarioService.getByCedula(cedula1);
                         if (!usr1.isEmpty()){
@@ -369,6 +383,8 @@ public class AcreditacionService {
                         }
                         CapituloLibro capituloLibro = new CapituloLibro(facultad,
                                 codigoUg,
+                                tipoPublicacion,
+                                codigoPublicacion,
                                 tituloLibro,
                                 tituloCapitulo,
                                 codigoIsbn,
@@ -422,6 +438,185 @@ public class AcreditacionService {
 
     public CapituloLibro saveCapituloLibro(CapituloLibro capituloLibro){
         return capituloLibroRepository.save(capituloLibro);
+    }
+
+    //REPORTES ARTICULOS
+    public List<Articulo> getAllArticulosByFilter(String tipoPublicacion,String codigoPublicacion, String fechaPublicacion){
+
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date dInicio = null;
+        try {
+            dInicio = formatter.parse(fechaPublicacion);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return (List<Articulo>) articuloRepository.findByTipoPublicacionOrCodigoPublicacionOrFechaPublicacion(tipoPublicacion,codigoPublicacion,dInicio);
+
+    }
+    public List<Articulo> getAllArticulosByFilterAndDocente(String tipoPublicacion,String codigoPublicacion, String fechaPublicacion, long docente){
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date dInicio = null;
+        try {
+            dInicio = formatter.parse(fechaPublicacion);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        List<Articulo> articulos = (List<Articulo>) articuloRepository.findByTipoPublicacionOrCodigoPublicacionOrFechaPublicacion(tipoPublicacion,codigoPublicacion,dInicio);
+        List<Articulo> articulosByDocente = new ArrayList<>();
+        for (Articulo articulo: articulos) {
+            for(Usuario docnt: articulo.getDocentes()){
+                if( docnt.getId() == docente){
+                    articulosByDocente.add(articulo);
+                }
+            }
+        }
+        return articulosByDocente;
+    }
+
+    public List<Articulo> getAllArticulosByDocente(long docente){
+        List<Articulo> articulos = (List<Articulo>) articuloRepository.findAll();
+        List<Articulo> articulosByDocente = new ArrayList<>();
+        for (Articulo articulo: articulos) {
+            for(Usuario docnt: articulo.getDocentes()){
+                if( docnt.getId() == docente){
+                    articulosByDocente.add(articulo);
+                }
+            }
+        }
+        return articulosByDocente;
+    }
+
+    //REPORTES PONENCIA
+    public List<Ponencia> getAllPonenciasByFilter(String tipoPublicacion,String codigoPublicacion, String fechaPublicacion){
+
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date dInicio = null;
+        try {
+            dInicio = formatter.parse(fechaPublicacion);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return (List<Ponencia>) ponenciaRepository.findByTipoPublicacionOrCodigoPublicacionOrFechaPublicacion(tipoPublicacion,codigoPublicacion,dInicio);
+
+    }
+    public List<Ponencia> getAllPonenciasByFilterAndDocente(String tipoPublicacion,String codigoPublicacion, String fechaPublicacion, long docente){
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date dInicio = null;
+        try {
+            dInicio = formatter.parse(fechaPublicacion);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        List<Ponencia> ponencias = (List<Ponencia>) ponenciaRepository.findByTipoPublicacionOrCodigoPublicacionOrFechaPublicacion(tipoPublicacion,codigoPublicacion,dInicio);
+        List<Ponencia> ponenciasByDocente = new ArrayList<>();
+        for (Ponencia ponencia: ponencias) {
+            for(Usuario docnt: ponencia.getDocentes()){
+                if( docnt.getId() == docente){
+                    ponenciasByDocente.add(ponencia);
+                }
+            }
+        }
+        return ponenciasByDocente;
+    }
+    public List<Ponencia> getAllPonenciasByDocente(long docente){
+        List<Ponencia> ponencias = (List<Ponencia>) ponenciaRepository.findAll();
+        List<Ponencia> poneneicasByDocente = new ArrayList<>();
+        for (Ponencia ponencia: ponencias) {
+            for(Usuario docnt: ponencia.getDocentes()){
+                if( docnt.getId() == docente){
+                    poneneicasByDocente.add(ponencia);
+                }
+            }
+        }
+        return poneneicasByDocente;
+    }
+
+    //REPORTES LIBRO
+    public List<Libro> getAllLibrosByFilter(String tipoPublicacion,String codigoPublicacion, String fechaPublicacion){
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date dInicio = null;
+        try {
+            dInicio = formatter.parse(fechaPublicacion);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return (List<Libro>) libroRepository.findByTipoPublicacionOrCodigoPublicacionOrFechaPublicacion(tipoPublicacion,codigoPublicacion,dInicio);
+
+    }
+    public List<Libro> getAllLibrosByFilterAndDocente(String tipoPublicacion,String codigoPublicacion, String fechaPublicacion, long docente){
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date dInicio = null;
+        try {
+            dInicio = formatter.parse(fechaPublicacion);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        List<Libro> libros = (List<Libro>) libroRepository.findByTipoPublicacionOrCodigoPublicacionOrFechaPublicacion(tipoPublicacion,codigoPublicacion,dInicio);
+        List<Libro> librosByDocente = new ArrayList<>();
+        for (Libro libro: libros) {
+            for(Usuario docnt: libro.getDocentes()){
+                if( docnt.getId() == docente){
+                    librosByDocente.add(libro);
+                }
+            }
+        }
+        return librosByDocente;
+    }
+    public List<Libro> getAllLibrosByDocente(long docente){
+        List<Libro> libros = (List<Libro>) libroRepository.findAll();
+        List<Libro> librosByDocente = new ArrayList<>();
+        for (Libro libro: libros) {
+            for(Usuario docnt: libro.getDocentes()){
+                if( docnt.getId() == docente){
+                    librosByDocente.add(libro);
+                }
+            }
+        }
+        return librosByDocente;
+    }
+
+    //REPORTES CAPITULO-LIBRO
+    public List<CapituloLibro> getAllCapitulosLibroByFilter(String tipoPublicacion,String codigoPublicacion, String fechaPublicacion){
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date dInicio = null;
+        try {
+            dInicio = formatter.parse(fechaPublicacion);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return (List<CapituloLibro>) capituloLibroRepository.findByTipoPublicacionOrCodigoPublicacionOrFechaPublicacion(tipoPublicacion,codigoPublicacion,dInicio);
+
+    }
+    public List<CapituloLibro> getAllCapitulosLibroByFilterAndDocente(String tipoPublicacion,String codigoPublicacion, String fechaPublicacion, long docente){
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date dInicio = null;
+        try {
+            dInicio = formatter.parse(fechaPublicacion);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        List<CapituloLibro> capitulosLibro = (List<CapituloLibro>) capituloLibroRepository.findByTipoPublicacionOrCodigoPublicacionOrFechaPublicacion(tipoPublicacion,codigoPublicacion,dInicio);
+        List<CapituloLibro> capitulosLibroByDocente = new ArrayList<>();
+        for (CapituloLibro capitulo: capitulosLibro) {
+            for(Usuario docnt: capitulo.getDocentes()){
+                if( docnt.getId() == docente){
+                    capitulosLibroByDocente.add(capitulo);
+                }
+            }
+        }
+        return capitulosLibroByDocente;
+    }
+    public List<CapituloLibro> getAllCapitulosLibroByDocente(long docente){
+        List<CapituloLibro> capitulosLibro = (List<CapituloLibro>) capituloLibroRepository.findAll();
+        List<CapituloLibro> capitulosLibroByDocente = new ArrayList<>();
+        for (CapituloLibro capitulo: capitulosLibro) {
+            for(Usuario docnt: capitulo.getDocentes()){
+                if( docnt.getId() == docente){
+                    capitulosLibroByDocente.add(capitulo);
+                }
+            }
+        }
+        return capitulosLibroByDocente;
     }
 
 }

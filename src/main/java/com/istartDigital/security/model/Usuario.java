@@ -42,16 +42,16 @@ public class Usuario implements Serializable {
     inverseJoinColumns = @JoinColumn(name = "rol_id"))
     private Set<Rol> roles = new HashSet<>();
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "director")
+    @OneToMany(mappedBy = "director")
     private List<Proyecto> proyectos;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "director")
+    @OneToMany(mappedBy = "director")
     private List<Producto> producto;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "director")
+    @OneToMany(mappedBy = "director")
     private List<AsignacionHoras> horas;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "investigador")
+    @OneToMany(mappedBy = "investigador")
     private List<DetalleAsigancionHoras> detalleHoras;
 
     public Usuario() {

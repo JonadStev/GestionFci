@@ -15,16 +15,16 @@ public class Producto implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @OneToOne()
+    @OneToOne
     @JoinColumn(name = "id_proyecto")
     //@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
     private Proyecto proyecto;
 
     private String nombreProyecto;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "id_director")
-    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
+    //@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
     private Usuario director;
 
     private String estado;
@@ -104,7 +104,7 @@ public class Producto implements Serializable {
     }
 
     public String getNombreProyecto() {
-        return nombreProyecto;
+        return this.proyecto.getNombre();
     }
 
     public void setNombreProyecto(String nombreProyecto) {

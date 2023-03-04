@@ -13,4 +13,6 @@ public interface SubLineaService {
 
     Optional<SubLinea> getSubLineaById(long id);
 
+    List<SubLinea> getAllSubLineasByLinea(int id);
+
 }

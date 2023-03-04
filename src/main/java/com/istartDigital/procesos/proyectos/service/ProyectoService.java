@@ -1,9 +1,10 @@
 package com.istartDigital.procesos.proyectos.service;
 
-import com.istartDigital.gestion.carrera.model.Carrera;
 import com.istartDigital.procesos.proyectos.dto.ProyectoDto;
 import com.istartDigital.procesos.proyectos.model.Proyecto;
 import com.istartDigital.procesos.proyectos.repository.ProyectoRepository;
+import com.istartDigital.security.model.Usuario;
+import com.istartDigital.security.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,9 @@ public class ProyectoService {
 
     @Autowired
     ProyectoRepository proyectoRepository;
+
+    @Autowired
+    UsuarioRepository usuarioRepository;
 
     public Proyecto saveProyecto(ProyectoDto proyecto){
 
@@ -56,6 +60,74 @@ public class ProyectoService {
 
     public List<Proyecto> getProyectosByStatus(String estado){
         return (List<Proyecto>) proyectoRepository.findByEstado(estado);
+    }
+
+    public List<Proyecto> getAllProyectosByFilter(String fechaInicio, String fechaFin){
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date dInicio = null;
+        Date dFinal = null;
+        try {
+            dInicio = formatter.parse(fechaInicio);
+            dFinal = formatter.parse(fechaFin);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return (List<Proyecto>) proyectoRepository.findByFechaInicioAndFechaFin(dInicio,dFinal);
+    }
+
+    public List<Proyecto> getAllProyectosByFilter(String fechaInicio, String fechaFin, String estado){
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date dInicio = null;
+        Date dFinal = null;
+        try {
+            dInicio = formatter.parse(fechaInicio);
+            dFinal = formatter.parse(fechaFin);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return (List<Proyecto>) proyectoRepository.findByFechaInicioAndFechaFinAndEstado(dInicio,dFinal,estado);
+    }
+
+    public List<Proyecto> getAllProyectosByFilter(String fechaInicio, String fechaFin, String estado, long director){
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date dInicio = null;
+        Date dFinal = null;
+        try {
+            dInicio = formatter.parse(fechaInicio);
+            dFinal = formatter.parse(fechaFin);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        Optional<Usuario> direc = usuarioRepository.findById(director);
+        return (List<Proyecto>) proyectoRepository.findByFechaInicioAndFechaFinAndEstadoAndDirector(dInicio,dFinal,estado,direc.get());
+    }
+
+    public List<Proyecto> getAllProyectosByFilter(String estado, long director){
+        Optional<Usuario> direc = usuarioRepository.findById(director);
+        return (List<Proyecto>) proyectoRepository.findByEstadoAndDirector(estado,direc.get());
+    }
+
+    public List<Proyecto> getAllProyectosByFilter(String fechaInicio, String fechaFin, long director){
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date dInicio = null;
+        Date dFinal = null;
+        try {
+            dInicio = formatter.parse(fechaInicio);
+            dFinal = formatter.parse(fechaFin);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        Optional<Usuario> direc = usuarioRepository.findById(director);
+        return (List<Proyecto>) proyectoRepository.findByFechaInicioAndFechaFinAndDirector(dInicio,dFinal,direc.get());
+    }
+
+    public List<Proyecto> getAllProyectosByFilter(long director){
+        Optional<Usuario> direc = usuarioRepository.findById(director);
+        if (direc.isEmpty()){
+            System.out.println("No se ha encontrado el director");
+            return null;
+        }
+        return (List<Proyecto>) proyectoRepository.findByDirector(direc.get());
     }
 
     public Optional<Proyecto> getProyectoById(long id){

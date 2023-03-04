@@ -28,4 +28,9 @@ public class SubLineaServiceImpl implements SubLineaService{
     public Optional<SubLinea> getSubLineaById(long id) {
         return subLineaRepository.findById(id);
     }
+
+    @Override
+    public List<SubLinea> getAllSubLineasByLinea(int id) {
+        return subLineaRepository.findByLinea(id);
+    }
 }

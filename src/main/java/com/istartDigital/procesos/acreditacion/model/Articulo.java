@@ -17,6 +17,8 @@ public class Articulo {
     private long id;
     private String facultad;
     private String codigoUg;
+    private String tipoPublicacion;
+    private String codigoPublicacion;
     private String tituloPublicacion;
     private String doi;
     private String baseDatosindexada;
@@ -27,7 +29,7 @@ public class Articulo {
     private String quartil;
     private String srjJcr;
     private Date fechaPublicacion;
-    private String campoDetallado;
+    private double campoDetallado;
     private String estado;
     private String linkPublicacion;
     private String linkRevista;
@@ -46,9 +48,11 @@ public class Articulo {
     public Articulo() {
     }
 
-    public Articulo(String facultad, String codigoUg, String tituloPublicacion, String doi, String baseDatosindexada, String codigoISSN, String tipoIndexacion, String nombreRevista, String numeroRevista, String quartil, String srjJcr, Date fechaPublicacion, String campoDetallado, String estado, String linkPublicacion, String linkRevista, String filiacion, String dominio, String linea, String sublinea, List<Usuario> docentes, String tituloProyectoFci, String observacion) {
+    public Articulo(String facultad, String codigoUg, String tipoPublicacion, String codigoPublicacion, String tituloPublicacion, String doi, String baseDatosindexada, String codigoISSN, String tipoIndexacion, String nombreRevista, String numeroRevista, String quartil, String srjJcr, Date fechaPublicacion, double campoDetallado, String estado, String linkPublicacion, String linkRevista, String filiacion, String dominio, String linea, String sublinea, List<Usuario> docentes, String tituloProyectoFci, String observacion) {
         this.facultad = facultad;
         this.codigoUg = codigoUg;
+        this.tipoPublicacion = tipoPublicacion;
+        this.codigoPublicacion = codigoPublicacion;
         this.tituloPublicacion = tituloPublicacion;
         this.doi = doi;
         this.baseDatosindexada = baseDatosindexada;
@@ -176,11 +180,11 @@ public class Articulo {
         this.fechaPublicacion = fechaPublicacion;
     }
 
-    public String getCampoDetallado() {
+    public double getCampoDetallado() {
         return campoDetallado;
     }
 
-    public void setCampoDetallado(String campoDetallado) {
+    public void setCampoDetallado(double campoDetallado) {
         this.campoDetallado = campoDetallado;
     }
 
@@ -262,5 +266,21 @@ public class Articulo {
 
     public void setObservacion(String observacion) {
         this.observacion = observacion;
+    }
+
+    public String getTipoPublicacion() {
+        return tipoPublicacion;
+    }
+
+    public void setTipoPublicacion(String tipoPublicacion) {
+        this.tipoPublicacion = tipoPublicacion;
+    }
+
+    public String getCodigoPublicacion() {
+        return codigoPublicacion;
+    }
+
+    public void setCodigoPublicacion(String codigoPublicacion) {
+        this.codigoPublicacion = codigoPublicacion;
     }
 }

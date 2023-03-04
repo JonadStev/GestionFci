@@ -18,19 +18,19 @@ public class AsignacionHoras implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @OneToOne()
+    @OneToOne
     @JoinColumn(name = "id_proyecto")
     //@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
     private Proyecto proyecto;
     private String nombreProyecto;
     private String convocatoria;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "id_director")
-    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
+    //@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
     private Usuario director;
     private String informe;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "horas", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "horas", cascade = CascadeType.ALL)
     private List<DetalleAsigancionHoras> detalle;
 
     public AsignacionHoras() {
@@ -61,7 +61,7 @@ public class AsignacionHoras implements Serializable {
     }
 
     public String getNombreProyecto() {
-        return nombreProyecto;
+        return proyecto.getNombre() ;
     }
 
     public void setNombreProyecto(String nombreProyecto) {

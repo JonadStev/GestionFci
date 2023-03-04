@@ -15,6 +15,8 @@ public class Libro {
     private long id;
     private String facultad;
     private String codigoUg;
+    private String tipoPublicacion;
+    private String codigoPublicacion;
     private String tituloLibro;
     private String codigoIsbn;
     private String editorCompilador;
@@ -38,9 +40,11 @@ public class Libro {
     public Libro() {
     }
 
-    public Libro(String facultad, String codigoUg, String tituloLibro, String codigoIsbn, String editorCompilador, String paginas, Date fechaPublicacion, String linkPublicacion, double campoDetallado, String filiacionUg, String revicionPorPares, String dominio, String linea, String sublinea, List<Usuario> docentes, String tituloProyectoFci, String observacion) {
+    public Libro(String facultad, String codigoUg, String tipoPublicacion, String codigoPublicacion, String tituloLibro, String codigoIsbn, String editorCompilador, String paginas, Date fechaPublicacion, String linkPublicacion, double campoDetallado, String filiacionUg, String revicionPorPares, String dominio, String linea, String sublinea, List<Usuario> docentes, String tituloProyectoFci, String observacion) {
         this.facultad = facultad;
         this.codigoUg = codigoUg;
+        this.tipoPublicacion = tipoPublicacion;
+        this.codigoPublicacion = codigoPublicacion;
         this.tituloLibro = tituloLibro;
         this.codigoIsbn = codigoIsbn;
         this.editorCompilador = editorCompilador;
@@ -200,5 +204,21 @@ public class Libro {
 
     public void setObservacion(String observacion) {
         this.observacion = observacion;
+    }
+
+    public String getTipoPublicacion() {
+        return tipoPublicacion;
+    }
+
+    public void setTipoPublicacion(String tipoPublicacion) {
+        this.tipoPublicacion = tipoPublicacion;
+    }
+
+    public String getCodigoPublicacion() {
+        return codigoPublicacion;
+    }
+
+    public void setCodigoPublicacion(String codigoPublicacion) {
+        this.codigoPublicacion = codigoPublicacion;
     }
 }

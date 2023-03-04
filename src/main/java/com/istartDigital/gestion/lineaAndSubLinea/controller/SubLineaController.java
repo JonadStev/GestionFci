@@ -25,4 +25,9 @@ public class SubLineaController {
         return subLineaService.getAllSubLineas();
     }
 
+    @GetMapping("/all/{id}")
+    public List<SubLinea> getAllByLinea(@PathVariable("id") int id){
+        return subLineaService.getAllSubLineasByLinea(id);
+    }
+
 }

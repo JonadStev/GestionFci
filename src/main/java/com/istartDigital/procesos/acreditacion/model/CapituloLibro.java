@@ -15,6 +15,8 @@ public class CapituloLibro {
     private long id;
     private String facultad;
     private String codigoUg;
+    private String tipoPublicacion;
+    private String codigoPublicacion;
     private String tituloLibro;
     private String tituloCapitulo;
     private String codigoIsbn;
@@ -39,9 +41,11 @@ public class CapituloLibro {
     public CapituloLibro() {
     }
 
-    public CapituloLibro(String facultad, String codigoUg, String tituloLibro, String tituloCapitulo, String codigoIsbn, String editorCompilador, String paginas, Date fechaPublicacion, String linkPublicacion, double campoDetallado, String filiacionUg, String revicionPorPares, String dominio, String linea, String sublinea, List<Usuario> docentes, String tituloProyectoFci, String observacion) {
+    public CapituloLibro(String facultad, String codigoUg, String tipoPublicacion, String codigoPublicacion, String tituloLibro, String tituloCapitulo, String codigoIsbn, String editorCompilador, String paginas, Date fechaPublicacion, String linkPublicacion, double campoDetallado, String filiacionUg, String revicionPorPares, String dominio, String linea, String sublinea, List<Usuario> docentes, String tituloProyectoFci, String observacion) {
         this.facultad = facultad;
         this.codigoUg = codigoUg;
+        this.tipoPublicacion = tipoPublicacion;
+        this.codigoPublicacion = codigoPublicacion;
         this.tituloLibro = tituloLibro;
         this.tituloCapitulo = tituloCapitulo;
         this.codigoIsbn = codigoIsbn;
@@ -210,5 +214,21 @@ public class CapituloLibro {
 
     public void setTituloCapitulo(String tituloCapitulo) {
         this.tituloCapitulo = tituloCapitulo;
+    }
+
+    public String getTipoPublicacion() {
+        return tipoPublicacion;
+    }
+
+    public void setTipoPublicacion(String tipoPublicacion) {
+        this.tipoPublicacion = tipoPublicacion;
+    }
+
+    public String getCodigoPublicacion() {
+        return codigoPublicacion;
+    }
+
+    public void setCodigoPublicacion(String codigoPublicacion) {
+        this.codigoPublicacion = codigoPublicacion;
     }
 }

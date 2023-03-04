@@ -13,9 +13,10 @@ public class Ponencia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
     private String facultad;
     private String codigoUg;
+    private String tipoPublicacion;
+    private String codigoPublicacion;
     private String nombrePonencia;
     private String doi;
     private String nombreEvento;
@@ -47,9 +48,11 @@ public class Ponencia {
     public Ponencia() {
     }
 
-    public Ponencia(String facultad, String codigoUg, String nombrePonencia, String doi, String nombreEvento, String baseDatosIndexada, String codigoIsbnIss, String tipoIndexacion, String edicionEvento, String organizadorEvento, String comiteCientifico, String pais, String ciudad, Date fechaPublicacion, String quartil, String sjrJcr, double campoDetallado, String linkPublicacion, String filiacionUg, String dominio, String linea, String sublinea, List<Usuario> docentes, String tituloProyectoFci, String observacion) {
+    public Ponencia(String facultad, String codigoUg, String tipoPublicacion, String codigoPublicacion, String nombrePonencia, String doi, String nombreEvento, String baseDatosIndexada, String codigoIsbnIss, String tipoIndexacion, String edicionEvento, String organizadorEvento, String comiteCientifico, String pais, String ciudad, Date fechaPublicacion, String quartil, String sjrJcr, double campoDetallado, String linkPublicacion, String filiacionUg, String dominio, String linea, String sublinea, List<Usuario> docentes, String tituloProyectoFci, String observacion) {
         this.facultad = facultad;
         this.codigoUg = codigoUg;
+        this.tipoPublicacion = tipoPublicacion;
+        this.codigoPublicacion = codigoPublicacion;
         this.nombrePonencia = nombrePonencia;
         this.doi = doi;
         this.nombreEvento = nombreEvento;
@@ -281,5 +284,21 @@ public class Ponencia {
 
     public void setObservacion(String observacion) {
         this.observacion = observacion;
+    }
+
+    public String getTipoPublicacion() {
+        return tipoPublicacion;
+    }
+
+    public void setTipoPublicacion(String tipoPublicacion) {
+        this.tipoPublicacion = tipoPublicacion;
+    }
+
+    public String getCodigoPublicacion() {
+        return codigoPublicacion;
+    }
+
+    public void setCodigoPublicacion(String codigoPublicacion) {
+        this.codigoPublicacion = codigoPublicacion;
     }
 }

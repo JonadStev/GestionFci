@@ -35,6 +35,36 @@ public class ProyectoController {
         return proyectoService.getProyectosByStatus(estado);
     }
 
+    @GetMapping("/allFilter")
+    public List<Proyecto> getAllByFilter(@RequestParam(defaultValue = "", name = "fechaInicio") String fechaInicio,
+                                        @RequestParam(defaultValue = "", name = "fechaFin") String fechaFin,
+                                        @RequestParam(defaultValue = "", name = "estado") String estado,
+                                        @RequestParam(defaultValue = "0", name = "director") long director){
+
+        if (!fechaInicio.isEmpty() && !fechaFin.isEmpty() && !estado.isEmpty() && director != 0){
+            System.out.println("if 1");
+            return proyectoService.getAllProyectosByFilter(fechaInicio,fechaFin, estado, director);
+        }else if (!fechaInicio.isEmpty() && !fechaFin.isEmpty() && estado.isEmpty() && director == 0){
+            System.out.println("if 2.0");
+            return proyectoService.getAllProyectosByFilter(fechaInicio,fechaFin);
+        }else if (!fechaInicio.isEmpty() && !fechaFin.isEmpty() && !estado.isEmpty()){
+            System.out.println("if 2");
+            return proyectoService.getAllProyectosByFilter(fechaInicio,fechaFin, estado);
+        }else if (!fechaInicio.isEmpty() && !fechaFin.isEmpty() && director != 0){
+            System.out.println("if 3");
+            return proyectoService.getAllProyectosByFilter(fechaInicio,fechaFin, director);
+        }else if (fechaInicio.isEmpty() && fechaFin.isEmpty() && !estado.isEmpty() && director != 0){
+            System.out.println("if 4");
+            return proyectoService.getAllProyectosByFilter(estado, director);
+        }else if (fechaInicio.isEmpty() && fechaFin.isEmpty() && !estado.isEmpty() && director == 0){
+            System.out.println("if 5");
+            return proyectoService.getProyectosByStatus(estado);
+        }else if (fechaInicio.isEmpty() && fechaFin.isEmpty() && estado.isEmpty() && director != 0){
+            System.out.println("if 6");
+            return proyectoService.getAllProyectosByFilter(director);
+        }else {return null;}
+    }
+
     @GetMapping("/{id}")
     public Optional<Proyecto> getById(@PathVariable("id") long id){
         return proyectoService.getProyectoById(id);

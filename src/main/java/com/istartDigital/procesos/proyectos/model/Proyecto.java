@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.istartDigital.coreBussines.model.Bloque;
 import com.istartDigital.gestion.producto.model.Producto;
 import com.istartDigital.procesos.horas.model.AsignacionHoras;
+import com.istartDigital.procesos.monitoreo.model.Monitoreo;
 import com.istartDigital.security.model.Rol;
 import com.istartDigital.security.model.Usuario;
 
@@ -31,21 +32,24 @@ public class Proyecto implements Serializable{
     private Date fechaInicio;
     private Date fechaFin;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "id_director")
-    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
+    //@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
     private Usuario director;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany
     @JoinTable(name = "PROYECTO_INVESTIGADOR", joinColumns = @JoinColumn(name = "proyecto_id"),
             inverseJoinColumns = @JoinColumn(name = "investigador_id"))
-    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
+    //@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
     private Set<Usuario> investigadores = new HashSet<>();
     private String correoDirector;
     private String telefonoDirector;
 
     @OneToOne(mappedBy = "proyecto")
     private Producto producto;
+
+    @OneToOne(mappedBy = "proyecto")
+    private Monitoreo monitoreo;
 
     @OneToOne(mappedBy = "proyecto")
     private AsignacionHoras horas;

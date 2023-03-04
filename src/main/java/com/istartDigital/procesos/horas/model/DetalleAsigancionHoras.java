@@ -22,13 +22,13 @@ public class DetalleAsigancionHoras {
     private int horasInvestigacionAsignadaTitulacion;
     private int numeroTrabajoTitulacion;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name="horas_id", nullable=false)
     private AsignacionHoras horas;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "id_investigador")
-    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
+    //@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
     private Usuario investigador;
 
 
