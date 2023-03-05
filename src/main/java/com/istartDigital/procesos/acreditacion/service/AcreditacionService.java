@@ -20,10 +20,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class AcreditacionService {
@@ -46,8 +43,9 @@ public class AcreditacionService {
             Sheet sheet = workbook.getSheet("articulos");
             //Sheet sheet = workbook.getSheetAt("");
             int count = 0;
-            ArrayList<Usuario> docentes = new ArrayList<>();
             for (Row row : sheet) {
+                //ArrayList<Usuario> docentes = new ArrayList<>();
+                Set<Usuario> docentes = new HashSet<>();
                 if (count > 0){
                     if(row != null){
                         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -131,9 +129,10 @@ public class AcreditacionService {
                                 dominio,
                                 linea,
                                 sublinea,
-                                docentes,
+                                //docentes,
                                 tituloProyectoFci,
                                 observacion);
+                        articulo.setDocentes(docentes);
                         articuloRepository.save(articulo);
                     }
                 }
@@ -141,8 +140,9 @@ public class AcreditacionService {
             }
             sheet = workbook.getSheet("ponencias");
             count = 0;
-            docentes = new ArrayList<>();
             for (Row row : sheet) {
+                //ArrayList<Usuario> docentes = new ArrayList<>();
+                Set<Usuario> docentes = new HashSet<>();
                 if (count > 0){
                     if(row != null){
                         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -230,9 +230,10 @@ public class AcreditacionService {
                                 dominio,
                                 linea,
                                 sublinea,
-                                docentes,
+                                //docentes,
                                 tituloProyectoFci,
                                 observacion);
+                        ponencia.setDocentes(docentes);
                         ponenciaRepository.save(ponencia);
                     }
                 }
@@ -240,8 +241,9 @@ public class AcreditacionService {
             }
             sheet = workbook.getSheet("libros");
             count = 0;
-            docentes = new ArrayList<>();
             for (Row row : sheet) {
+                //ArrayList<Usuario> docentes = new ArrayList<>();
+                Set<Usuario> docentes = new HashSet<>();
                 if (count > 0){
                     if(row != null){
                         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -313,9 +315,10 @@ public class AcreditacionService {
                                 dominio,
                                 linea,
                                 sublinea,
-                                docentes,
+                                //docentes,
                                 tituloProyectoFci,
                                 observacion);
+                        libro.setDocentes(docentes);
                         libroRepository.save(libro);
                     }
                 }
@@ -323,8 +326,9 @@ public class AcreditacionService {
             }
             sheet = workbook.getSheet("capitulosLibro");
             count = 0;
-            docentes = new ArrayList<>();
             for (Row row : sheet) {
+                //ArrayList<Usuario> docentes = new ArrayList<>();
+                Set<Usuario> docentes = new HashSet<>();
                 if (count > 0){
                     if(row != null){
                         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -398,9 +402,10 @@ public class AcreditacionService {
                                 dominio,
                                 linea,
                                 sublinea,
-                                docentes,
+                                //docentes,
                                 tituloProyectoFci,
                                 observacion);
+                        capituloLibro.setDocentes(docentes);
                         capituloLibroRepository.save(capituloLibro);
                     }
                 }

@@ -2,11 +2,13 @@ package com.istartDigital.procesos.acreditacion.model;
 
 import com.istartDigital.gestion.estadoProyectosFci.model.Estado;
 import com.istartDigital.gestion.unesco.model.Unesco;
+import com.istartDigital.security.model.Rol;
 import com.istartDigital.security.model.Usuario;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.List;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Entity
 @Table(name = "ARTICULO")
@@ -37,18 +39,19 @@ public class Articulo {
     private String dominio;
     private String linea;
     private String sublinea;
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    //@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(name = "articulo_docente",
             joinColumns = @JoinColumn(name = "articulo_id"),
             inverseJoinColumns = @JoinColumn(name = "docente_id"))
-    private List<Usuario> docentes;
+    private Set<Usuario> docentes = new HashSet<>();
     private String tituloProyectoFci;
     private String observacion;
 
     public Articulo() {
     }
 
-    public Articulo(String facultad, String codigoUg, String tipoPublicacion, String codigoPublicacion, String tituloPublicacion, String doi, String baseDatosindexada, String codigoISSN, String tipoIndexacion, String nombreRevista, String numeroRevista, String quartil, String srjJcr, Date fechaPublicacion, double campoDetallado, String estado, String linkPublicacion, String linkRevista, String filiacion, String dominio, String linea, String sublinea, List<Usuario> docentes, String tituloProyectoFci, String observacion) {
+    public Articulo(String facultad, String codigoUg, String tipoPublicacion, String codigoPublicacion, String tituloPublicacion, String doi, String baseDatosindexada, String codigoISSN, String tipoIndexacion, String nombreRevista, String numeroRevista, String quartil, String srjJcr, Date fechaPublicacion, double campoDetallado, String estado, String linkPublicacion, String linkRevista, String filiacion, String dominio, String linea, String sublinea, /*Set<Usuario> docentes,*/ String tituloProyectoFci, String observacion) {
         this.facultad = facultad;
         this.codigoUg = codigoUg;
         this.tipoPublicacion = tipoPublicacion;
@@ -71,7 +74,7 @@ public class Articulo {
         this.dominio = dominio;
         this.linea = linea;
         this.sublinea = sublinea;
-        this.docentes = docentes;
+        //this.docentes = docentes;
         this.tituloProyectoFci = tituloProyectoFci;
         this.observacion = observacion;
     }
@@ -172,8 +175,10 @@ public class Articulo {
         this.srjJcr = srjJcr;
     }
 
-    public Date getFechaPublicacion() {
-        return fechaPublicacion;
+    public String getFechaPublicacion() {
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String strDate = dateFormat.format(fechaPublicacion);
+        return strDate;
     }
 
     public void setFechaPublicacion(Date fechaPublicacion) {
@@ -244,11 +249,11 @@ public class Articulo {
         this.sublinea = sublinea;
     }
 
-    public List<Usuario> getDocentes() {
+    public Set<Usuario> getDocentes() {
         return docentes;
     }
 
-    public void setDocentes(List<Usuario> docentes) {
+    public void setDocentes(Set<Usuario> docentes) {
         this.docentes = docentes;
     }
 
@@ -283,4 +288,5 @@ public class Articulo {
     public void setCodigoPublicacion(String codigoPublicacion) {
         this.codigoPublicacion = codigoPublicacion;
     }
+
 }
