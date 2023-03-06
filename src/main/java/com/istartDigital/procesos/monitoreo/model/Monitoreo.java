@@ -16,14 +16,18 @@ public class Monitoreo {
     private Proyecto proyecto;
     private String autoevaluacion;
     private String informe;
+    private double presupuestoInicial;
+    private double presupuestoFinal;
 
     public Monitoreo() {
     }
 
-    public Monitoreo(Proyecto proyecto, String autoevaluacion, String informe) {
+    public Monitoreo(Proyecto proyecto, String autoevaluacion, String informe, double presupuestoInicial, double presupuestoFinal) {
         this.proyecto = proyecto;
         this.autoevaluacion = autoevaluacion;
         this.informe = informe;
+        this.presupuestoInicial = presupuestoInicial;
+        this.presupuestoFinal = presupuestoFinal;
     }
 
     public long getId() {
@@ -56,5 +60,21 @@ public class Monitoreo {
 
     public void setInforme(String informe) {
         this.informe = informe;
+    }
+
+    public double getPresupuestoInicial() {
+        return presupuestoInicial;
+    }
+
+    public void setPresupuestoInicial(double presupuestoInicial) {
+        this.presupuestoInicial = presupuestoInicial;
+    }
+
+    public double getPresupuestoFinal() {
+        return presupuestoFinal;
+    }
+
+    public void setPresupuestoFinal(double presupuestoFinal) {
+        this.presupuestoFinal = presupuestoFinal;
     }
 }

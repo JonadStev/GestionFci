@@ -26,6 +26,7 @@ public class Proyecto implements Serializable{
     private long id;
 
     private String idProyecto;
+    @Column(length = 550)
     private String nombre;
     private String convocatoria;
     private String estado;

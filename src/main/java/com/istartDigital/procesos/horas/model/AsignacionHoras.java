@@ -22,6 +22,7 @@ public class AsignacionHoras implements Serializable {
     @JoinColumn(name = "id_proyecto")
     //@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
     private Proyecto proyecto;
+    @Column(length = 550)
     private String nombreProyecto;
     private String convocatoria;
     @ManyToOne
